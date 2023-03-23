@@ -27,6 +27,7 @@ do
 	echo "Delete extra name:"$i
 awk -F" >" '{print $1;next}1' $data_dir/prot_fasta/${i}_with_all_names.fasta > $data_dir/prot_fasta/${i}.fasta
 done
+for f in $data_dir/prot_fasta/*.fasta; do echo $f;cat $f|grep '>'|wc -l ; done >> $data_dir/Prot_count.txt 
 #Delete excess files
 rm -f $data_dir/prot_fasta/*_with_all_names.fasta
 #Delete sequences with 'X'
@@ -36,3 +37,4 @@ do
 	echo "Delete sequences with 'X' "$i
 python $data_dir/Filter_protein_with_X.py -f $data_dir/prot_fasta/${i}.fasta -o $data_dir/prot_fasta_clean/${i}.fasta
 done
+for f in $data_dir/prot_fasta_clean/*.fasta; do echo $f;cat $f|grep '>'|wc -l ; done >> $data_dir/Prot_clean_count.txt
