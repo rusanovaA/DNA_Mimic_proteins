@@ -3,7 +3,7 @@
 #import sys
 import argparse
 
-parser = argparse.ArgumentParser(description="Create csv file from fasta")
+parser = argparse.ArgumentParser(description="Create tsv file from fasta")
 parser.add_argument("-f", "--file", help="Fasta with proteins")
 parser.add_argument("-o", "--output", help="csv output")
 args, unknown = parser.parse_known_args()
